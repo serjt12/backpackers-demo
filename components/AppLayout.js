@@ -28,6 +28,11 @@ class Index extends PureComponent {
           {this.props.children}
         </Content>
         <Footer>Footer</Footer>
+				<style global jsx>{`
+					body {
+						overflow-x: hidden;
+					}
+					`}</style>
       </Layout>
     )
   }
