@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import { Layout } from 'antd'
-import Country from './country'
+import Home from './home'
 
 import stylesheet from 'antd/dist/antd.min.css'
 
@@ -25,11 +25,9 @@ class Index extends PureComponent {
     return (
       <Layout>
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-        <Header>Header</Header>
         <Content>
-          <Country />
+          <Home />
         </Content>
-        <Footer>Footer</Footer>
       </Layout>
     )
   }
