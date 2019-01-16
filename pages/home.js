@@ -11,46 +11,46 @@ const Search = Input.Search
 const top3Activities = activities.australia.uluru.slice(0, 3)
 const Home = () => (
 	<Fragment>
-		<Row gutter={16}>
-			<Col span={24} style={{ height: 600 }}>
-				<img
-					className="hero-img"
-					tours-and-things-to-do-in-australia=""
-					src="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg"
-					alt=""
-					sizes="(min-width:1400px) 2000px,(min-width:800px) 1400px,800px"
-					srcSet="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 800w,
-									https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 1400w,
-									https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 2000w"
-				/>
-				<h1>SEARCH LESS, TRAVEL MORE!</h1>
-				<h3>GREAT EXPERIENCES AT BACKPACKER PRICES.</h3>
-				<div className="menu-container">
-					<Menu
-						mode="horizontal"
-						style={{
-							position: 'relative',
-							top: '20px',
-							display: 'inline-flex',
-							width: '400px',
-							justifyContent: 'space-between',
-							borderRadius: '20px'
-						}}
-					>
-						<Menu.Item key="basic">Basic Search</Menu.Item>
-						<Menu.Item key="advanced">Advanced Search</Menu.Item>
-					</Menu>
-					<div className="input-container">
-						<Search
-							placeholder="Search for a destination, activity or a tours"
-							onSearch={value => console.log(value)}
-							enterButton
-							style={{ width: '346px' }}
-						/>
-					</div>
-				</div>
-			</Col>
-		</Row>
+	 <Row gutter={16}>
+		<Col span={24} style={{ height: 600 }}>
+		 <img
+			className="hero-img"
+			tours-and-things-to-do-in-australia=""
+			src="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg"
+			alt=""
+			sizes="(min-width:1400px) 2000px,(min-width:800px) 1400px,800px"
+			srcSet="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 800w,
+							https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 1400w,
+							https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 2000w"
+		/>
+		<h1>SEARCH LESS, TRAVEL MORE!</h1>
+		<h3>GREAT EXPERIENCES AT BACKPACKER PRICES.</h3>
+		<div className="menu-container">
+			<Menu
+				mode="horizontal"
+				style={{
+					position: 'relative',
+					top: '20px',
+					display: 'inline-flex',
+					width: '400px',
+					justifyContent: 'space-between',
+					borderRadius: '20px'
+				}}
+			>
+				<Menu.Item key="basic">Basic Search</Menu.Item>
+				<Menu.Item key="advanced">Advanced Search</Menu.Item>
+		</Menu>
+		<div className="input-container">
+			<Search
+				placeholder="Search for a destination, activity or a tours"
+				onSearch={value => console.log(value)}
+				enterButton
+				style={{ width: '346px' }}
+			/>
+		</div>
+	</div>
+</Col>
+</Row>
 		<div className="category-container">
 			<Row gutter={16}>
 				<Col span={6}>
