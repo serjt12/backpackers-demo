@@ -13,7 +13,7 @@ const Home = () => (
       <Col
         span={24}
         style={{
-          height: 600,
+          height: 519,
         }}
       >
         <img
@@ -35,12 +35,12 @@ const Home = () => (
               position: 'relative',
               top: '20px',
               display: 'inline-flex',
-              width: '400px',
+              width: '476px',
               justifyContent: 'space-between',
               borderRadius: '20px',
             }}
           >
-            <Menu.Item key="basic">Basic Search</Menu.Item>
+            <Menu.Item key="basic" className="ant-menu-item-selected">Basic Search</Menu.Item>
             <Menu.Item key="advanced">Advanced Search</Menu.Item>
           </Menu>
           <div className="input-container">
@@ -49,7 +49,8 @@ const Home = () => (
               onSearch={value => console.log(value)}
               enterButton
               style={{
-                width: '346px',
+                width: '760px',
+                height: '50px',
               }}
             />
           </div>
@@ -153,7 +154,7 @@ const Home = () => (
     <div className="destination-container">
       <h4>DESTINATIONS</h4>
       <div className="more-link">
-        <a href="#">Discover More >></a>
+        <a href="#">Discover More &gt;&gt;</a>
       </div>
       <Row gutter={48}>
         <Col span={6}>
@@ -249,7 +250,7 @@ const Home = () => (
     <div className="why-container">
       <h4>WHY BOOK WITH US?</h4>
       <div className="more-link">
-        <a href="#">Learn More >></a>
+        <a href="#">Learn More &gt;&gt;</a>
       </div>
       <Row gutter={16}>
         <Col span={12}>
@@ -302,7 +303,7 @@ const Home = () => (
     <div className="activities-container">
       <h4>ACTIVITIES AND THINGS TO DO</h4>
       <div className="more-link">
-        <a href="#">Show More >></a>
+        <a href="#">Show More &gt;&gt;</a>
       </div>
       <Row gutter={16}>
         <Col span={8}>
@@ -376,7 +377,7 @@ const Home = () => (
     <div className="last-minute-deals-container">
       <h4>Last Minute Deals</h4>
       <div className="more-link">
-        <a href="#">Show More >></a>
+        <a href="#">Show More &gt;&gt;</a>
       </div>
       <Row gutter={16}>
         <List
@@ -398,7 +399,7 @@ const Home = () => (
     <div className="stories-container">
       <h4>TRAVEL STORIES</h4>
       <div className="more-link">
-        <a href="#">Read More >></a>
+        <a href="#">Read More &gt;&gt;</a>
       </div>
       <Row gutter={48}>
         <Col span={12}>
@@ -572,7 +573,7 @@ const Home = () => (
           <div className="review-text">
             <p className="review-title">incredible experience</p>
             <p className="review-text">
-              It's really nice to walk through the "National Park" before getting
+              It&apos;s really nice to walk through the &quot;National Park&quot; before getting
               to the pool, the view is so nice and Im sure that i will go ba...
             </p>
             <i className="fas fa-quote-left" />
@@ -627,7 +628,7 @@ const Home = () => (
       <Row gutter={24}>
         <h4>INSPIRATION FROM OUR INSTAGRAM</h4>
         <div className="more-link">
-          <p href="#">Learn More >></p>
+          <p href="#">Learn More &gt;&gt;</p>
         </div>
         <Col span={6}>
           <img
@@ -661,14 +662,13 @@ const Home = () => (
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: top;
           position: absolute;
         }
         h1 {
           position: relative;
           color: white;
           text-align: center;
-          top: 70px;
+          top: 40px;
           font-size: 42px;
           font-family: 'Montserrat', sans-serif;
           font-weight: 600;
@@ -677,33 +677,36 @@ const Home = () => (
           position: relative;
           color: white;
           text-align: center;
-          top: 100px;
+          top: 60px;
           font-size: 20px;
           font-weight: 400;
+          letter-spacing: 1px;
         }
         .menu-container {
-          top: 81px;
+          top: 50px;
           position: relative;
           text-align: center;
         }
-        .menu-container ul {
-          border-radius: 20px;
-        }
         .input-container {
           position: relative;
-          top: 120px;
+          top: 55px;
         }
         .input-container :global(.ant-btn-primary) {
           background-color: #ff4a2f;
           border-color: #ff4a2f;
-        }
-        .menu-container :global(.ant-menu-item:hover) {
-          border-bottom: none;
-          color: #ff4a2f;
+          height: 50px;
         }
         .menu-container :global(.ant-menu-item-selected) {
           border-bottom: none;
-          color: #ff4a2f;
+          color: #fff;
+          background: #ff4a2f;
+          width: 50%;
+          border-radius: 20px 0 0 20px;
+          position: relative;
+          left: -22px;
+        }
+        .menu-container :global(.ant-menu-item) {
+          font-size: 17px;
         }
         .category-container {
           height: 250px;
@@ -714,16 +717,20 @@ const Home = () => (
         }
         .category-container :global(.ant-row) {
           height: 200px;
-          position: relative;
-          top: 30px;
+        }
+        .category-container :global(.ant-col-6) {
+          height: 120px;
         }
         .category-box {
           display: flex;
           flex-direction: column;
           text-align: center;
           height: 40px;
-          margin: 20px;
+          margin-top: 33px;
           cursor: pointer;
+        }
+        .category-box:nth-child(odd) {
+          border-right: solid 1px #fff;
         }
         .category-box a:visited {
           color: inherit;
@@ -740,6 +747,8 @@ const Home = () => (
         .activities-container {
           background: #fff;
           text-align: center;
+          padding-top: 90px;
+          height: 900px;
         }
         .img-text {
           position: relative;
@@ -801,22 +810,35 @@ const Home = () => (
           width: 448px;
           border-radius: 10px;
         }
+        .stories-box {
+          width: 448px;
+          display: inline-block;
+          position: relative;
+        }
+        .stories-box-down {
+          width: 348px;
+          display: inline-block;
+          position: relative;
+          height: 200px;
+        }
         .dark {
           position: absolute;
-          width: 81%;
+          width: 100%;
           height: 100%;
           top: 0;
-          left: 53px;
+          left: 0px;
           border-radius: 10px;
           cursor: pointer;
         }
         .dark-down {
           cursor: pointer;
           position: absolute;
-          width: 99%;
+          width: 100%;
           height: 100%;
           top: 0;
           left: 0px;
+          border-radius: 10px;
+          cursor: pointer;
         }
         .dark-down:hover,
         .dark:hover {
@@ -824,21 +846,22 @@ const Home = () => (
         }
         .stories-up-text {
           position: absolute;
-          left: 73px;
+          left: 25%;
           color: #fff;
           z-index: 1;
           font-family: 'Pacifico', cursive;
         }
         .stories-up-text-down {
           position: absolute;
-          left: 13px;
+          left: 20%;
           color: #fff;
           font-family: 'Pacifico', cursive;
+          z-index: 1;
         }
         .stories-box a {
           position: absolute;
           bottom: 100px;
-          left: 196px;
+          left: 140px;
           width: 184px;
           color: #fff;
           display: inline-block;
@@ -848,9 +871,9 @@ const Home = () => (
           font-size: 16px;
         }
         .stories-box-down a {
-          position: absolute;
-          bottom: 76px;
-          left: 90px;
+          position: relative;
+          bottom: 126px;
+          left: 0px;
           width: 184px;
           color: #fff;
           display: inline-block;
@@ -861,6 +884,7 @@ const Home = () => (
         }
         .stories-down img {
           width: 348px;
+          height: 200px;
           border-radius: 10px;
         }
         :global(.ant-col-12) {
