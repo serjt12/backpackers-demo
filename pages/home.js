@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react'
-import { Col, Card, List, Row, Menu, Input } from 'antd'
+import { Col, Row, Menu, Input } from 'antd'
+import Media from 'react-media'
 import AppLayout from '../components/AppLayout';
-import { activities } from '../utils/images'
-
-import ActivityCardContent from '../components/ActivityCardContent'
+import ActivityRow from '../components/ActivityRow'
 
 const { Search } = Input
-const top3Activities = activities.australia.uluru.slice(0, 3)
+
 const Home = () => (
   <Fragment>
     <Row gutter={16}>
@@ -379,22 +378,13 @@ const Home = () => (
       <div className="more-link">
         <a href="#">Show More &gt;&gt;</a>
       </div>
-      <Row gutter={16}>
-        <List
-          grid={{
-            gutter: 16,
-            column: 3,
-          }}
-          dataSource={top3Activities}
-          renderItem={item => (
-            <List.Item>
-              <Card cover={<img src={item} alt="" />}>
-                <ActivityCardContent item={item} />
-              </Card>
-            </List.Item>
-          )}
-        />
-      </Row>
+      <Media query="(max-width: 568px)">
+        { (matches) => {
+          const column = matches ? 1 : 3
+          return <ActivityRow column={column} />
+        }
+      }
+      </Media>
     </div>
     <div className="stories-container">
       <h4>TRAVEL STORIES</h4>
@@ -751,9 +741,8 @@ const Home = () => (
           height: 900px;
         }
         .img-text {
-          position: relative;
+          position: absolute;
           bottom: 130px;
-          left: 6px;
           font-weight: 600;
           font-size: 18px;
         }
