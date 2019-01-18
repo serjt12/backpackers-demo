@@ -2,13 +2,13 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import { Layout } from 'antd'
-import Home from './home'
 
 import stylesheet from 'antd/dist/antd.min.css'
 
-const {
-  Header, Footer, Content,
-} = Layout;
+import Home from './home'
+// import Home from './homeResponsive'
+
+const { Content } = Layout;
 
 class Index extends PureComponent {
   static async getInitialProps ({ store }) {
@@ -21,7 +21,7 @@ class Index extends PureComponent {
     // return { stars: json.stargazers_count }
   }
 
-  render () {
+  render() {
     return (
       <Layout>
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />

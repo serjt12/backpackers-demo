@@ -378,7 +378,7 @@ const Home = () => (
       <div className="more-link">
         <a href="#">Show More &gt;&gt;</a>
       </div>
-      <Media query="(max-width: 568px)">
+      <Media query="(max-width: 568px)" defaultMatches={false}>
         { (matches) => {
           const column = matches ? 1 : 3
           return <ActivityRow column={column} />

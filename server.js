@@ -1,4 +1,4 @@
-/*const { createServer } = require('http')
+/* const { createServer } = require('http')
 const path = require('path')
 const next = require('next')
 
@@ -36,7 +36,7 @@ app.prepare().then(_ => {
 
     console.log(`> App running on port ${PORT}`)
   })
-})*/
+}) */
 
 
 const express = require('express')
@@ -44,35 +44,39 @@ const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
 const PORT = process.env.PORT || 3000
-const app = next({ dev })
+const app = next({
+  dev,
+})
 const handle = app.getRequestHandler()
 
 app.prepare()
-.then(() => {
-  const server = express()
+  .then(() => {
+    const server = express()
 
-  server.get('/australia', (req, res) => {
-    const page = '/country'
-    const queryParams = { country: req.params.c } 
-    app.render(req, res, page, queryParams)
-  })
-  
-  server.get('/:country/:destination', (req, res) => {
-    const page = '/destination'
-    const { destination, country } = req.params
-    app.render(req, res, page, { c: country, d: destination })
-  })
+    server.get('/australia', (req, res) => {
+      const page = '/country'
+      const queryParams = {
+        country: req.params.c,
+      }
+      app.render(req, res, page, queryParams)
+    })
 
-  server.get('*', (req, res) => {
-    return handle(req, res)
-  })
+    server.get('/:country/:destination', (req, res) => {
+      const page = '/destination'
+      const { destination, country } = req.params
+      app.render(req, res, page, {
+        c: country, d: destination,
+      })
+    })
 
-  server.listen(PORT, (err) => {
-    if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    server.get('*', (req, res) => handle(req, res))
+
+    server.listen(PORT, (err) => {
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
+    })
   })
-})
-.catch((ex) => {
-  console.error(ex.stack)
-  process.exit(1)
-})
+  .catch((ex) => {
+    console.error(ex.stack)
+    process.exit(1)
+  })

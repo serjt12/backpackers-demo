@@ -17,6 +17,7 @@ const ActivityRow = ({ column }) => (
         renderItem={item => (
           <List.Item>
             <Card cover={<img src={item} alt="" />}>
+							COLUMNAS = {column}
               <ActivityCardContent item={item} />
             </Card>
           </List.Item>
