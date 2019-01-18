@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
 import { Breadcrumb, Col, Card, List, Row } from 'antd'
 import Link from 'next/link'
+import Media from 'react-media'
 
 import { activities, topDealTag } from '../utils/images'
 import AppLayout from '../components/AppLayout'
-import ActivityCardContent  from '../components/ActivityCardContent'
+import ActivityCardContent from '../components/ActivityCardContent'
+import ActivityRow from '../components/ActivityRow'
 
-const Country = (gono) => {
-  const top3Activities = activities.australia.uluru.slice(0, 3)
+const Country = () => {
   const allActivities = activities.australia.uluru.slice(3)
 
   const isTopDeal = i => i === allActivities[0]
@@ -16,14 +17,14 @@ const Country = (gono) => {
     <Fragment>
       <Row gutter={16}>
         <Col span={24}>
-          <img 
+          <img
             uluru=""
-            tours="" 
-            and="" 
-            activities="" 
-            src="/files/content/d89f0d29c99262aee9b995fe169809dc287252c0cca21e89bdcf987e20f7a53c.jpg" 
-            alt="" 
-            sizes="(min-width:1400px) 2000px, (min-width:800px) 1400px, 800px" 
+            tours=""
+            and=""
+            activities=""
+            src="/files/content/d89f0d29c99262aee9b995fe169809dc287252c0cca21e89bdcf987e20f7a53c.jpg"
+            alt=""
+            sizes="(min-width:1400px) 2000px, (min-width:800px) 1400px, 800px"
             srcSet="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/landing_top_800/files/content/d89f0d29c99262aee9b995fe169809dc287252c0cca21e89bdcf987e20f7a53c.jpg 800w,
                     https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/landing_top_1400/files/content/d89f0d29c99262aee9b995fe169809dc287252c0cca21e89bdcf987e20f7a53c.jpg 1400w,
                     https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/lang_page_wide/files/content/d89f0d29c99262aee9b995fe169809dc287252c0cca21e89bdcf987e20f7a53c.jpg 2000w"
@@ -55,7 +56,7 @@ const Country = (gono) => {
             width: 120px;
             height: 120px;
           }
-    
+
           .top-deal-tag span {
             position: absolute;
             line-height: 20px;
@@ -67,7 +68,7 @@ const Country = (gono) => {
             color: white;
             transform: rotate(-44deg);
           }
-    
+
           .promo-tag {
             position: absolute;
             right: 0px;
@@ -78,7 +79,7 @@ const Country = (gono) => {
             height: 80px;
             text-align: right;
           }
-    
+
           .promo-tag > span {
             color: #fff;
             text-align: center;
@@ -97,7 +98,7 @@ const Country = (gono) => {
             bottom: -21px;
             right: -48px;
           }
-    
+
           .promo-tag .smaller-text {
             font-size: 10px;
           }
@@ -105,10 +106,10 @@ const Country = (gono) => {
           .pull-left {
             float: left!important;
           }
-    
+
           .pull-right {
             float: right!important;
-          }    
+          }
         `}</style>
         <Row>
           <Col span={12}>
@@ -126,27 +127,13 @@ const Country = (gono) => {
             <p>21 Activities and things to do</p>
           </Col>
         </Row>
-        <Row gutter={16}>
-          <List
-            grid={{
-              gutter: 16, column: 3
-            }}
-            dataSource={top3Activities}
-            renderItem={item => (
-              <List.Item>
-                <Card
-                  cover={
-                    <img src={item} />  
-                  }
-                >
-                  <ActivityCardContent
-                    item={item}
-                  />
-                </Card>
-              </List.Item>
-            )}
-          />
-        </Row>
+          <Media query="(max-width: 568px)">
+            { (matches) => {
+              const column = matches ? 1 : 3
+              return <ActivityRow column={column} />
+            }
+          }
+          </Media>
         <Row gutter={16}>
           <Col span={6}>
           </Col>
@@ -158,27 +145,29 @@ const Country = (gono) => {
               dataSource={allActivities}
               renderItem={item => (
                 <List.Item>
-                  <Card 
+                  <Card
                     cover={
-                      <div style={{ position: 'relative' }}>
-                        <img src={item} style={{ width: '100%' }} />
-                        { isTopDeal(item) ? (
+                      (
+                        <div style={{ position: 'relative' }}>
+                          <img src={item} style={{ width: '100%' }} alt="" />
+                          { isTopDeal(item) ? (
                             <div className="top-deal-tag">
-                              <img src={topDealTag} />
+                              <img src={topDealTag} alt="" />
                               <span>Top Deal</span>
                             </div>
                           ) : null
                         }
-                        <div className="promo-tag">
-                          <span>
-                            <span className="smaller-text">
-                              <span className="currency">AUD $</span>
-                              <span className="price">17</span> 
-                              OFF
+                          <div className="promo-tag">
+                            <span>
+                              <span className="smaller-text">
+                                <span className="currency">AUD $</span>
+                                <span className="price">17</span>
+                                OFF
+                              </span>
                             </span>
-                          </span>
+                          </div>
                         </div>
-                      </div>
+              )
                     }
                   >
                     <ActivityCardContent item={item} />

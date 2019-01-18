@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
 import { Breadcrumb, Col, Card, List, Row } from 'antd'
 import Link from 'next/link'
+import Media from 'react-media'
 
 import { activities } from '../utils/images'
-import AppLayout from '../components/AppLayout.js'
-import ActivityCardContent  from '../components/ActivityCardContent'
+import AppLayout from '../components/AppLayout'
+import ActivityCardContent from '../components/ActivityCardContent'
+import ActivityRow from '../components/ActivityRow'
 
-const Country = (props) => {
+const Country = () => {
   const top3Activities = activities.australia.index.slice(0, 3)
   const allActivities = activities.australia.index.slice(3)
 
@@ -22,11 +24,11 @@ const Country = (props) => {
               object-position: top;
             }
           `}</style>
-          <img 
-            tours-and-things-to-do-in-australia="" 
+          <img
+            tours-and-things-to-do-in-australia=""
             src="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/lang_page_wide/files/content/5780d887ec940180e411b1dd33512925be00f2d3615f50d119bf32a46601055b.jpg"
             alt=""
-            sizes="(min-width:1400px) 2000px,(min-width:800px) 1400px,800px" 
+            sizes="(min-width:1400px) 2000px,(min-width:800px) 1400px,800px"
             srcSet="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/landing_top_800/files/content/5780d887ec940180e411b1dd33512925be00f2d3615f50d119bf32a46601055b.jpg 800w,
                     https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/landing_top_1400/files/content/5780d887ec940180e411b1dd33512925be00f2d3615f50d119bf32a46601055b.jpg 1400w,
                     https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/lang_page_wide/files/content/5780d887ec940180e411b1dd33512925be00f2d3615f50d119bf32a46601055b.jpg 2000w"
@@ -67,30 +69,15 @@ const Country = (props) => {
             <p>241 Activities and things to do</p>
           </Col>
         </Row>
+        <Media query="(max-width: 568px)">
+          { (matches) => {
+            const column = matches ? 1 : 3
+            return <ActivityRow column={column} />
+          }
+        }
+        </Media>
         <Row gutter={16}>
-          <List
-            grid={{
-              gutter: 16, column: 3
-            }}
-            dataSource={top3Activities}
-            renderItem={item => (
-              <List.Item>
-                <Card
-                  cover={
-                    <img src={item} />  
-                  }
-                >
-                  <ActivityCardContent
-                    item={item}
-                  />
-                </Card>
-              </List.Item>
-            )}
-          />
-        </Row>
-        <Row gutter={16}>
-          <Col span={6}>
-          </Col>
+          <Col span={6} />
           <Col span={18}>
             <List
               grid={{
@@ -101,7 +88,7 @@ const Country = (props) => {
                 <List.Item>
                   <Card
                     cover={
-                      <img src={item} />  
+                      <img src={item} />
                     }
                   >
                     <ActivityCardContent

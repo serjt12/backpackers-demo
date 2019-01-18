@@ -4,5 +4,5 @@ static/sw.js
 *-error.log
 *lock.json
 yarn.lock
-
+.eslintrc
 .DS_Store
