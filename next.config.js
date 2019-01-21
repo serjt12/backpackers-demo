@@ -25,7 +25,7 @@ module.exports = withImages({
       config.plugins.push(
         new WorkboxPlugin.InjectManifest({
           swSrc: path.join(__dirname, 'utils', 'sw.js'),
-          swDest: path.join(__dirname, '.next', 'sw.js'),
+          // swDest: path.join(__dirname, '.next', 'sw.js'),
           globDirectory: __dirname,
           globPatterns: [
             'static/**/*.{png,jpg,ico}' // Precache all static assets by default

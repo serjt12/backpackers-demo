@@ -1,44 +1,3 @@
-/* const { createServer } = require('http')
-const path = require('path')
-const next = require('next')
-
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dir: '.', dev })
-const handle = app.getRequestHandler()
-
-const PORT = process.env.PORT || 3000
-
-app.prepare().then(_ => {
-  const server = createServer((req, res) => {
-    if (req.url === '/sw.js' || req.url.startsWith('/precache-manifest')) {
-      app.serveStatic(req, res, path.join(__dirname, '.next', req.url))
-    } else {
-      handle(req, res)
-    }
-  })
-
-  const express = require('express')(server)
-
-  express.get('/australia', (req, res) => {
-    const page = '/country'
-    const { params: { c } } = req
-    app.render(req, res, page, { country: c })
-  })
-
-  express.get('/:country/:destination', (req, res) => {
-    const page = '/destination'
-    const { params: { country, destination } } = req
-    app.render(req, res, page, { country, destination })
-  })
-
-  server.listen(PORT, err => {
-    if (err) throw err
-
-    console.log(`> App running on port ${PORT}`)
-  })
-}) */
-
-const { createServer } = require('http')
 const path = require('path')
 const next = require('next')
 
@@ -52,14 +11,16 @@ const handle = app.getRequestHandler()
 
 app.prepare()
   .then(() => {
-    const server = createServer((req, res) => {
-      if (req.url === '/sw.js' || req.url.startsWith('/precache-manifest')) {
-        app.serveStatic(req, res, path.join(__dirname, '.next', req.url))
-      } else {
-        handle(req, res)
-      }
+    const express = require('express')()
+
+    express.get('/sw.js', (req, res) => {
+      app.serveStatic(req, res, path.join(__dirname, '.next/sw.js'))
     })
-    const express = require('express')(server)
+
+    express.get('/precache-manifest.*', (req, res) => {
+      app.serveStatic(req, res, path.join(__dirname, `.next/${req.url}`))
+    })
+
     express.get('/australia', (req, res) => {
       const page = '/country'
       const queryParams = {
