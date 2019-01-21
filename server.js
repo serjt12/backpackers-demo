@@ -39,7 +39,6 @@ app.prepare().then(_ => {
 }) */
 
 const { createServer } = require('http')
-const express = require('express')
 const path = require('path')
 const next = require('next')
 
@@ -47,7 +46,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const PORT = process.env.PORT || 3000
 const app = next({
   dir: '.',
-  dev
+  dev,
 })
 const handle = app.getRequestHandler()
 
@@ -79,7 +78,7 @@ app.prepare()
 
     express.get('*', (req, res) => handle(req, res))
 
-    server.listen(PORT, (err) => {
+    express.listen(PORT, (err) => {
       if (err) throw err
       console.log('> Ready on http://localhost:3000')
     })
