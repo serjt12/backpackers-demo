@@ -114,7 +114,9 @@ const Country = () => {
         <Row>
           <Col span={12}>
             <Breadcrumb>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link as="/home" href="/">Home</Link>
+              </Breadcrumb.Item>
               <Breadcrumb.Item>
                 <Link as="/australia" href="/country?c=australia"><a>Australia</a></Link>
               </Breadcrumb.Item>

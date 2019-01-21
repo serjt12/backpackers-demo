@@ -15,15 +15,22 @@ const Country = () => {
   return (
     <Fragment>
       <Row gutter={16}>
-        <Col span={24} style={{ height: 600 }}>
-          <style jsx>{`
+        <Col
+          span={24}
+          style={{
+            height: 600,
+          }}
+        >
+          <style jsx>
+            {`
             img {
               width: 100%;
               height: 100%;
               object-fit: cover;
               object-position: top;
             }
-          `}</style>
+          `}
+          </style>
           <img
             tours-and-things-to-do-in-australia=""
             src="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/lang_page_wide/files/content/5780d887ec940180e411b1dd33512925be00f2d3615f50d119bf32a46601055b.jpg"
@@ -36,7 +43,8 @@ const Country = () => {
         </Col>
       </Row>
       <div className="container">
-        <style jsx>{`
+        <style jsx>
+          {`
           @media (min-width: 1200px) {
             .container {
               width: 1200px;
@@ -52,11 +60,14 @@ const Country = () => {
           div :global(.ant-breadcrumb) {
             font-size: 16px;
           }
-        `}</style>
+        `}
+        </style>
         <Row>
           <Col span={12}>
             <Breadcrumb>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link as="/home" href="/">Home</Link>
+              </Breadcrumb.Item>
               <Breadcrumb.Item>
                 <Link as="/australia" href="/country?c=australia">Australia</Link>
               </Breadcrumb.Item>
@@ -81,7 +92,7 @@ const Country = () => {
           <Col span={18}>
             <List
               grid={{
-                gutter: 16, column: 2
+                gutter: 16, column: 2,
               }}
               dataSource={allActivities}
               renderItem={item => (
