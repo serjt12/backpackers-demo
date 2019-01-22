@@ -11,12 +11,11 @@ module.exports = withImages({
     */
     const oldEntry = config.entry
 
-    config.entry = () =>
-      oldEntry().then(entry => {
-        entry['main.js'] &&
-        entry['main.js'].push(path.resolve('./utils/offline'))
-        return entry
-      })
+    config.entry = () => oldEntry().then((entry) => {
+      entry['main.js']
+        && entry['main.js'].push(path.resolve('./utils/offline'))
+      return entry
+    })
 
     /* Enable only in Production */
     if (!dev) {
@@ -28,12 +27,12 @@ module.exports = withImages({
           // swDest: path.join(__dirname, '.next', 'sw.js'),
           globDirectory: __dirname,
           globPatterns: [
-            'static/**/*.{png,jpg,ico}' // Precache all static assets by default
-          ]
-        })
+            'static/**/*.{png,jpg,ico}', // Precache all static assets by default
+          ],
+        }),
       )
     }
 
     return config
-  }
+  },
 })
