@@ -28,7 +28,7 @@ workbox.precaching.precacheAndRoute(
 )
 
 workbox.routing.registerRoute(
-  /[.](png|jpg|css)/,
+  /[.](css)/,
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
@@ -37,14 +37,24 @@ workbox.routing.registerRoute(
   }),
   'GET',
 )
-
 workbox.routing.registerRoute(
-  /^https:\/\/code\.getmdl\.io.*/,
+  /\.(?:png|gif|jpg|jpeg|svg)$/,
   workbox.strategies.cacheFirst({
-    cacheName: 'lib-cache',
+    cacheName: 'images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
   }),
-  'GET',
-)
+);
+workbox.routing.registerRoute(
+  /^https:\/\/fonts\.googleapis\.com/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'google-fonts-stylesheets',
+  }),
+);
 
 // Fetch the root route as fast as possible
 workbox.routing.registerRoute(

@@ -6,8 +6,9 @@ import ActivityRow from '../components/ActivityRow'
 
 const { Search } = Input
 
-const Home = () => (
+const Home = props => (
   <Fragment>
+		{console.log('PROPS:', props)}
     <Row gutter={16}>
       <Col
         span={24}
@@ -955,9 +956,4 @@ const Home = () => (
     </style>
   </Fragment>
 )
-
-export default () => (
-  <AppLayout>
-    <Home />
-  </AppLayout>
-)
+export default () => <AppLayout><Home /></AppLayout>
