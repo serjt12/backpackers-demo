@@ -5,4 +5,4 @@ static/sw.js
 yarn.lock
 .eslintrc
 .DS_Store
-.next
+.next/*
