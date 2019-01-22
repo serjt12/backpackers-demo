@@ -1,4 +1,3 @@
-const express = require('express')()
 const path = require('path')
 const next = require('next')
 
@@ -12,6 +11,7 @@ const handle = app.getRequestHandler()
 
 app.prepare()
   .then(() => {
+    const express = require('express')()
     express.get('/sw.js', (req, res) => {
       app.serveStatic(req, res, path.join(__dirname, '.next/sw.js'))
     })
