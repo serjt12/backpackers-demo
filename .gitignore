@@ -1,8 +1,7 @@
 node_modules/
 static/sw.js
-.next
 *-error.log
 *lock.json
 yarn.lock
-
+.eslintrc
 .DS_Store

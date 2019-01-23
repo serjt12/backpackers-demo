@@ -1,0 +1,11 @@
+{
+	"name": "Backpackers Deals",
+	"version": 2,
+  "builds": [
+		{ "src": "next.config.js", "use": "@now/next" },
+    { "src": "server.js", "use": "@now/node" }
+  ],
+	"env": {
+    "NODE_ENV": "production"
+  }
+}

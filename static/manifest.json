@@ -23,13 +23,13 @@
       "type": "image/png"
     },
     {
-      "src": "img/splashscreen-icon-384x384.png",
-      "sizes": "384x384",
+      "src": "img/bghero.png",
+      "sizes": "566x375",
       "type": "image/png"
     }
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#673ab7",
+  "theme_color": "#ff4a2f",
   "background_color": "#EEE"
 }

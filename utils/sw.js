@@ -1,4 +1,6 @@
-workbox.core.setCacheNameDetails({ prefix: 'next-ss' })
+workbox.core.setCacheNameDetails({
+  prefix: 'next-ss',
+})
 
 workbox.skipWaiting()
 workbox.clientsClaim()
@@ -17,46 +19,56 @@ workbox.precaching.suppressWarnings()
 
 workbox.precaching.precacheAndRoute(
   self.__precacheManifest.filter(
-    m =>
-      !m.url.startsWith('bundles/') &&
-      !m.url.startsWith('static/commons') &&
-      m.url !== 'build-manifest.json'
+    m => !m.url.startsWith('bundles/')
+      && !m.url.startsWith('static/commons')
+      && m.url !== 'build-manifest.json',
   ),
-  {}
+  {
+  },
 )
 
 workbox.routing.registerRoute(
-	/[.](png|jpg|css)/,
-	workbox.strategies.cacheFirst({
-  cacheName: 'assets-cache',
-  cacheableResponse: {
-    statuses: [0, 200]
-  }
-}),
-	'GET'
+  /[.](css)/,
+  workbox.strategies.cacheFirst({
+    cacheName: 'assets-cache',
+    cacheableResponse: {
+      statuses: [0, 200],
+    },
+  }),
+  'GET',
 )
-
 workbox.routing.registerRoute(
-	/^https:\/\/code\.getmdl\.io.*/,
-	workbox.strategies.cacheFirst({
-  cacheName: 'lib-cache'
-}),
-	'GET'
-)
+  /\.(?:png|gif|jpg|jpeg|svg)$/,
+  workbox.strategies.cacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  }),
+);
+workbox.routing.registerRoute(
+  /^https:\/\/fonts\.googleapis\.com/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'google-fonts-stylesheets',
+  }),
+);
 
 // Fetch the root route as fast as possible
 workbox.routing.registerRoute(
-	'/',
-	workbox.strategies.staleWhileRevalidate({
-  cacheName: 'root'
-}),
-	'GET'
+  '/',
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'root',
+  }),
+  'GET',
 )
 
 workbox.routing.registerRoute(
-	/^http.*/,
-	workbox.strategies.networkFirst({
-  cacheName: 'http-cache'
-}),
-	'GET'
+  /^http.*/,
+  workbox.strategies.networkFirst({
+    cacheName: 'http-cache',
+  }),
+  'GET',
 )
