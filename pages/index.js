@@ -22,7 +22,6 @@ class Index extends PureComponent {
   // }
 
   render() {
-    const ua = this.props.userAgent
     return (
       <Layout>
         <style dangerouslySetInnerHTML={{
