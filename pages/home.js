@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Col, Row, Menu, Input } from 'antd'
 import AppLayout from '../components/AppLayout'
 import ActivityRow from '../components/ActivityRow'
-import { activities } from '../utils/images'
 
 const { Search } = Input
 

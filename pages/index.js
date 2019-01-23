@@ -20,10 +20,6 @@ class Index extends PureComponent {
   // const json = await res.json()
   // return { stars: json.stargazers_count }
   // }
-  static async getInitialProps({ req }) {
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-    return { userAgent }
-  }
 
   render() {
     const ua = this.props.userAgent
@@ -34,8 +30,7 @@ class Index extends PureComponent {
         }}
         />
         <Content>
-          You are in: { ua }
-          <Home userAgent={ua} />
+          <Home />
         </Content>
       </Layout>
     )
