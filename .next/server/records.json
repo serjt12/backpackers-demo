@@ -89,17 +89,24 @@
       "static/~pvEZfHuoSgtgCGfpUNc8/pages/destination.js": 3,
       "static/~pvEZfHuoSgtgCGfpUNc8/pages/home.js": 4,
       "static/~pvEZfHuoSgtgCGfpUNc8/pages/index.js": 5,
-      "static/~pvEZfHuoSgtgCGfpUNc8/pages/_error.js": 6
+      "static/~pvEZfHuoSgtgCGfpUNc8/pages/_error.js": 6,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/_app.js": 7,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/_document.js": 8,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/country.js": 9,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/destination.js": 10,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/home.js": 11,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/index.js": 12,
+      "static/WJJX0bzEqz5bbEsEt4YR1/pages/_error.js": 13
     },
     "bySource": {},
     "usedIds": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6
+      10,
+      11,
+      12,
+      13,
+      7,
+      8,
+      9
     ]
   }
 }

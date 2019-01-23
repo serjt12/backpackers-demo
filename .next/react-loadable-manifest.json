@@ -87,7 +87,7 @@
       "publicPath": "static/chunks/commons.ef2f07de9153f44b5c3a.js"
     }
   ],
-  "../../modules/_core": [
+  "../modules/_core": [
     {
       "id": 11,
       "name": "./node_modules/core-js/library/modules/_core.js",
@@ -223,7 +223,7 @@
       "publicPath": "static/chunks/commons.ef2f07de9153f44b5c3a.js"
     }
   ],
-  "./defineProperty": [
+  "@babel/runtime-corejs2/helpers/defineProperty": [
     {
       "id": 28,
       "name": "./node_modules/@babel/runtime-corejs2/helpers/defineProperty.js",
