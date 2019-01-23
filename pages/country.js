@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Breadcrumb, Col, Card, List, Row } from 'antd'
 import Link from 'next/link'
-import Media from 'react-media'
 
 import { activities } from '../utils/images'
 import AppLayout from '../components/AppLayout'
@@ -9,7 +8,6 @@ import ActivityCardContent from '../components/ActivityCardContent'
 import ActivityRow from '../components/ActivityRow'
 
 const Country = () => {
-  const top3Activities = activities.australia.index.slice(0, 3)
   const allActivities = activities.australia.index.slice(3)
 
   return (
@@ -80,13 +78,7 @@ const Country = () => {
             <p>241 Activities and things to do</p>
           </Col>
         </Row>
-        <Media query="(max-width: 568px)">
-          { (matches) => {
-            const column = matches ? 1 : 3
-            return <ActivityRow column={column} />
-          }
-        }
-        </Media>
+        <ActivityRow />
         <Row gutter={16}>
           <Col span={6} />
           <Col span={18}>

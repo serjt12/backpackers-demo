@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
-import { Col, Row, Menu, Input, List, Card } from 'antd'
-import Media from 'react-media'
+import { Col, Row, Menu, Input } from 'antd'
 import AppLayout from '../components/AppLayout'
-import ActivityCardContent from '../components/ActivityCardContent'
+import ActivityRow from '../components/ActivityRow'
 import { activities } from '../utils/images'
 
-const top3Activities = activities.australia.uluru.slice(0, 3)
 const { Search } = Input
-
 
 class Home extends React.PureComponent {
   render() {
@@ -383,21 +380,7 @@ class Home extends React.PureComponent {
           <div className="more-link">
             <a href="#">Show More &gt;&gt;</a>
           </div>
-          <Row gutter={16}>
-            <List
-              grid={{
-			          gutter: 16, xs: 1, sm: 1, md: 2, lg: 3, xl: 3, xxl: 3
-			        }}
-              dataSource={top3Activities}
-              renderItem={item => (
-                <List.Item>
-                  <Card cover={<img src={item} alt="" />}>
-                    <ActivityCardContent item={item} />
-                  </Card>
-                </List.Item>
-			        )}
-            />
-          </Row>
+          <ActivityRow />
         </div>
         <div className="stories-container">
           <h4>TRAVEL STORIES</h4>

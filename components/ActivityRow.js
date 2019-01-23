@@ -5,13 +5,12 @@ import { activities } from '../utils/images'
 
 const top3Activities = activities.australia.uluru.slice(0, 3)
 
-const ActivityRow = ({ column }) => (
+const ActivityRow = () => (
   <Fragment>
-    <Row gutter={16}>
+    <Row>
       <List
         grid={{
-          gutter: 16,
-          column,
+          gutter: 16, xs: 1, sm: 1, md: 2, lg: 3, xl: 3, xxl: 3
         }}
         dataSource={top3Activities}
         renderItem={item => (
