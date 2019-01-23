@@ -1,4 +1,4 @@
-importScripts("precache-manifest.3ed222960827322517d99acf6ff27296.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("precache-manifest.682ee5df7ca9a4faf9fcd36597989df2.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 workbox.core.setCacheNameDetails({
   prefix: 'next-ss',
