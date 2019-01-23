@@ -27,7 +27,10 @@ export default withRedux(initStore, {
       return (
         <Container>
           <Head>
-            <title>Backpacker Deals | Tours, Activities and Travel Deals | Great Experiences At Backpackers Price </title>
+            <title>
+              Backpacker Deals | Tours, Activities and Travel Deals |
+              Great Experiences At Backpackers Price
+            </title>
           </Head>
           <Provider store={store}>
             <Component {...pageProps} />

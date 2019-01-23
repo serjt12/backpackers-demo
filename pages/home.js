@@ -13,8 +13,8 @@ class Home extends React.PureComponent {
           <Col
             span={24}
             style={{
-		          height: 519,
-		        }}
+              height: 519,
+            }}
           >
             <img
               className="hero-img"
@@ -23,8 +23,8 @@ class Home extends React.PureComponent {
               alt=""
               sizes="(min-width:1400px) 2000px,(min-width:800px) 1400px,800px"
               srcSet="https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 800w,
-		          https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 1400w,
-		          https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 2000w"
+              https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 1400w,
+              https://d2yqwx4q1fpmvo.cloudfront.net/media/cache/home_top_3000/files/content/9f345e31652a29f788279e6893f0de9bc12be56bf082c669259d6c9cf8976a09.jpg 2000w"
             />
             <h1>SEARCH LESS, TRAVEL MORE!</h1>
             <h3>GREAT EXPERIENCES AT BACKPACKER PRICES.</h3>
@@ -32,13 +32,13 @@ class Home extends React.PureComponent {
               <Menu
                 mode="horizontal"
                 style={{
-		              position: 'relative',
-		              top: '20px',
-		              display: 'inline-flex',
-		              width: '476px',
-		              justifyContent: 'space-between',
-		              borderRadius: '20px',
-		            }}
+                  position: 'relative',
+                  top: '20px',
+                  display: 'inline-flex',
+                  width: '476px',
+                  justifyContent: 'space-between',
+                  borderRadius: '20px',
+                }}
               >
                 <Menu.Item key="basic" className="ant-menu-item-selected">Basic Search</Menu.Item>
                 <Menu.Item key="advanced">Advanced Search</Menu.Item>
@@ -49,9 +49,9 @@ class Home extends React.PureComponent {
                   onSearch={value => console.log(value)}
                   enterButton
                   style={{
-		                width: '760px',
-		                height: '50px',
-		              }}
+                    width: '760px',
+                    height: '50px',
+                  }}
                 />
               </div>
             </div>
