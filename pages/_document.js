@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
             content='upgrade-insecure-requests'
           />
 					<meta name="Description" content="Backpacker Deals | Tours, Activities and Travel Deals |
-					Great Experiences At Backpackers Price">
+					Great Experiences At Backpackers Price" />
           <link rel='manifest' href='static/manifest.json' />
           <link rel='icon' href='static/img/favicon.ico' />
           <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
