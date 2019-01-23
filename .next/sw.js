@@ -1,4 +1,4 @@
-importScripts("precache-manifest.33c00dbe1e70139e5231839acf6e5ec7.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("precache-manifest.38a1078711e6d670232a037b93f38af9.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 workbox.core.setCacheNameDetails({
   prefix: 'next-ss',
@@ -30,7 +30,7 @@ workbox.precaching.precacheAndRoute(
 )
 
 workbox.routing.registerRoute(
-  /[.](png|jpg|css)/,
+  /[.](css)/,
   workbox.strategies.cacheFirst({
     cacheName: 'assets-cache',
     cacheableResponse: {
@@ -39,14 +39,24 @@ workbox.routing.registerRoute(
   }),
   'GET',
 )
-
 workbox.routing.registerRoute(
-  /^https:\/\/code\.getmdl\.io.*/,
+  /\.(?:png|gif|jpg|jpeg|svg)$/,
   workbox.strategies.cacheFirst({
-    cacheName: 'lib-cache',
+    cacheName: 'images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
   }),
-  'GET',
-)
+);
+workbox.routing.registerRoute(
+  /^https:\/\/fonts\.googleapis\.com/,
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'google-fonts-stylesheets',
+  }),
+);
 
 // Fetch the root route as fast as possible
 workbox.routing.registerRoute(
